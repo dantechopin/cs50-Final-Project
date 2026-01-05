@@ -1,0 +1,60 @@
+.header_div_title
+{
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30pt;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+}
+
+.button_div_text
+{
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'Times New Roman';
+
+}
+
+.parent_header_div
+{
+    display: flex;
+}
+
+.child_header_div
+{
+    background-color: #ffffff;
+    margin: 0;
+    padding: 5px;
+    flex: 1;
+    /* To add border: border: <width> <style> <color> */
+    border: 3px solid black;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+.parent_button_div
+{
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    /* Do this to make it organize the child divs horizontally */
+    display: flex;
+}
+
+.child_button_div
+{
+    /* Look up on GPT why to use flex: 1 */
+    flex: 1;
+    border: 2px groove black;
+}
+
+body
+{
+    background-color: #e0d2c8;
+    /* I need to do margin and padding equals to 0 because browser usually puts them at 8px by default in body*/
+    margin: 0;
+    padding: 0;
+}
