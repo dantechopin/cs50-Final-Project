@@ -2,11 +2,18 @@
 <html>
     <head>
         <title>Login</title>
+        <link href="static/style.css" rel="stylesheet">
     </head>
     <body>
 
-        <div class="login_window">
-            Teste
+        <div class="login_rectangle">>
+            <p class="login_text" style="font-size: 25pt;">LOGIN</p>
+            <form action="/login" method="post">
+                <input autocomplete="off" placeholder="Usuário" name="username" type="text">
+                <input autocomplete="off" placeholder="Senha" name="password" type="text">
+                <button type="submit" placeholder="Enviar"></button>
+            </form>
+            
         </div>
         
     </body>

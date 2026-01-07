@@ -15,8 +15,13 @@
     font-family: 'Times New Roman'
 }
 
-.nav_div_title_right
+.login_button
 {
+    /* Takes the underline of the hyperlink */
+    text-decoration: none;
+    color: #000000;
+    /* You need to put display: block because anchors are inline elements in html*/
+    display: block;
     text-align: right;
     margin: 0;
     padding: 18px;
@@ -25,11 +30,12 @@
 }
 .button_div_text
 {
-    margin: 0;
-    padding: 3px;
+    display: block;
     text-align: center;
     font-size: 15pt;
     font-family: 'Times New Roman';
+    text-decoration: none;
+    color: #000000;
 
 }
 
@@ -95,4 +101,25 @@ body
     /* I need to do margin and padding equals to 0 because browser usually puts them at 8px by default in body*/
     margin: 0;
     padding: 0;
+}
+
+.login_rectangle
+{
+    background-color: #ffffff;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_text
+{
+    font-size: medium;
+    text-decoration-style: solid;
 }
