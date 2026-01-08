@@ -5,16 +5,18 @@
         <link href="static/style.css" rel="stylesheet">
     </head>
     <body>
-
-        <div class="login_rectangle">>
-            <p class="login_text" style="font-size: 25pt;">LOGIN</p>
+        <div class="login_rectangle">
+            <p style="font-size: 25pt; font-weight: bold;">LOGIN</p>
             <form action="/login" method="post">
                 <input autocomplete="off" placeholder="Usuário" name="username" type="text">
                 <input autocomplete="off" placeholder="Senha" name="password" type="text">
-                <button type="submit" placeholder="Enviar"></button>
+                <button class="login_text" type="submit">Enviar</button>
+            </form>
+            <form action="/register" method="get">
+                <p style="padding: 3px">Nunca se registrou? clique aqui:</p>
+                <button type="submit">Registrar</button>
             </form>
             
         </div>
-        
     </body>
 </html>

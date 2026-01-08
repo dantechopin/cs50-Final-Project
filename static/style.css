@@ -103,6 +103,12 @@ body
     padding: 0;
 }
 
+.login_form
+{
+    background-color: #ffffff;
+    display: grid;
+}
+
 .login_rectangle
 {
     background-color: #ffffff;
@@ -113,13 +119,26 @@ body
     width: 400px;
     height: 200px;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+
 }
 
 .login_text
 {
-    font-size: medium;
-    text-decoration-style: solid;
+    margin: 15px;
+    padding: 5px;
+}
+
+.error_div
+{
+    background-color: #ffffff; 
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 500px;
+    height: 350px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
 }
