@@ -1,11 +1,14 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect
+import os
+from flask import Flask, render_template, request, redirect, session, make_response
 from werkzeug.security import check_password_hash, generate_password_hash
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+load_dotenv()
+app.secret_key = os.environ.get("SECRET_KEY")
+
 
 connection = sqlite3.connect('database.db', check_same_thread=False)
 
@@ -13,7 +16,12 @@ cursor = connection.cursor()
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if session.get("autenticado"):
+        #Change the print() to rendering the template (index.html) with a parameter that is the username, so it appears in the up most right corner
+        print("Cookie_adquired")
+        return render_template("index.html")
+    elif not session.get("autenticado"):
+        return redirect("/login")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -22,6 +30,7 @@ def login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
+        #TODO: make so that the username and password, if invalid redirect you to this page 
     
         cursor.execute("SELECT password FROM user_info WHERE username = ?", (username,))
 
@@ -30,13 +39,20 @@ def login():
 
         if row is None:
             return render_template("apology.html")
-        
+
+        cursor.execute("SELECT id FROM user_info WHERE username = ?", (username,))
+        ids = cursor.fetchone()
 
         #em row[0], estamos acessando o 1 elemento da tupla (a sintaxe de tuplas é igual à de arrays)
         db_password = row[0]
+        id_ = ids[0]
         
         if check_password_hash(db_password, password) ==  True:
-            return redirect("/")
+            session["autenticado"] = True
+            resp = make_response(redirect("/"))
+            resp.set_cookie("username", username)
+            resp.set_cookie("id", str(id_))
+            return resp
         else:
             return render_template("apology.html")
 
