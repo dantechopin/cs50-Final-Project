@@ -46,9 +46,27 @@
     align-items: center;
 }
 
+.static
+{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /* z-index is the "height" for the object, it determines who is above who in the web-page */
+    z-index: 100;
+}
+
+.static2
+{
+    position: fixed;
+    width: 100%;
+    top: 83px;
+    /* z-index is the "height" for the object, it determines who is above who in the web-page */
+    z-index: 100;
+}
+
 .child_header_div
 {
-    background-color: #ffffff;
+    background-color: beige;
     margin: 0;
     padding: 5px;
     /* To add border: border: <width> <style> <color> */
@@ -80,7 +98,7 @@
 
 .parent_button_div
 {
-    background-color: #ffffff;
+    background-color: beige;
     margin: 0;
     padding: 0;
     /* Do this to make it organize the child divs horizontally */
@@ -104,13 +122,13 @@ body
 
 .login_form
 {
-    background-color: #ffffff;
+    background-color: beige;
     display: grid;
 }
 
 .login_rectangle
 {
-    background-color: #ffffff;
+    background-color: beige;
     display: block;
     position: absolute;
     top: 50%;
@@ -130,7 +148,7 @@ body
 
 .error_div
 {
-    background-color: #ffffff; 
+    background-color: beige; 
     display: block;
     position: absolute;
     top: 45%;

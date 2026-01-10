@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div style="justify-items: center; background-color:gainsboro">
+    <form>   
+        <input type="search" placeholder="Livros, autores, editoras" style="margin:15px; width: 600px; height: 25px">
+        <button type="submit">Pesquisar!</button>
+    </form>
+</div>
+<div style="border-style: solid; justify-items: center; background-color: beige; width: 450px; height: 400px; justify-self: center;">
+    <div style="display: flex; align-items: flex-start">
+        <img src="static/icons/livro.png" style=" width: 170px; height: auto; position:relative; float: left;">
+        <div style="display: block; max-width: 250px;">
+            <h3>TÍTULO</h3>
+            <p style="word-wrap: break-word; overflow-wrap: break-word; overflow-y: auto; max-block-size: 100px">descrição</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

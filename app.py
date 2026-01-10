@@ -15,6 +15,7 @@ app.config.update(
     SESSION_COOKIE_SECURE=False,  # True se HTTPS
     SESSION_COOKIE_SAMESITE='Lax'
 )
+
 load_dotenv()
 app.secret_key = os.environ.get("SECRET_KEY")
 
@@ -93,3 +94,7 @@ def register_ok():
         return render_template("register_ok.html")
 
     return render_template("apology.html")
+
+@app.route("/sebo")
+def sebo():
+    return render_template("sebo.html")    
