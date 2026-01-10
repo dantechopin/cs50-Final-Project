@@ -44,7 +44,6 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    position: sticky;
 }
 
 .child_header_div
@@ -141,4 +140,39 @@ body
     transform: translate(-50%, -50%);
     text-align: center;
     
+}
+
+.hero_title
+{
+    font-weight: bold;
+    font-size: 25pt;
+}
+
+.hero_text
+{
+    font-size: 12pt;
+}
+
+.hero_image
+{
+    width: 475px; 
+    height: 250px; 
+    margin: 70px;
+    display: block;
+}
+
+.hero_text_box
+{
+    font-size: 16pt; 
+    margin: 70px;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figure img {
+    display: block;
 }

@@ -3,25 +3,35 @@ import os
 from flask import Flask, render_template, request, redirect, session, make_response
 from werkzeug.security import check_password_hash, generate_password_hash
 from dotenv import load_dotenv
+from datetime import timedelta
+
+
 
 app = Flask(__name__)
 
+app.config.update(
+    SESSION_PERMANENT=False,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=False,  # True se HTTPS
+    SESSION_COOKIE_SAMESITE='Lax'
+)
 load_dotenv()
 app.secret_key = os.environ.get("SECRET_KEY")
-
 
 connection = sqlite3.connect('database.db', check_same_thread=False)
 
 cursor = connection.cursor()
 
+@app.context_processor
+def inject_user():
+    return {
+        'autenticado': session.get('autenticado', False),
+        'username': session.get('username')
+    }
+
 @app.route("/")
 def index():
-    if session.get("autenticado"):
-        #Change the print() to rendering the template (index.html) with a parameter that is the username, so it appears in the up most right corner
-        print("Cookie_adquired")
-        return render_template("index.html")
-    elif not session.get("autenticado"):
-        return redirect("/login")
+    return render_template("index.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -33,6 +43,7 @@ def login():
         #TODO: make so that the username and password, if invalid redirect you to this page 
     
         cursor.execute("SELECT password FROM user_info WHERE username = ?", (username,))
+
 
         #fetchone(): take the last sql line and transform it into a tuple, if there's no line, it returns None
         row = cursor.fetchone()
@@ -48,11 +59,11 @@ def login():
         id_ = ids[0]
         
         if check_password_hash(db_password, password) ==  True:
+            session.clear()
             session["autenticado"] = True
-            resp = make_response(redirect("/"))
-            resp.set_cookie("username", username)
-            resp.set_cookie("id", str(id_))
-            return resp
+            session["username"] = username
+            session["id"] = id_
+            return redirect("/")
         else:
             return render_template("apology.html")
 

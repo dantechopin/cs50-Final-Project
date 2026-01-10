@@ -3,6 +3,7 @@
     <head>
         <title>LitHub</title>
         <link href="static/style.css" rel="stylesheet">
+        <link href="static/icons" rel="icon">
     </head>
 
     <body>
@@ -15,7 +16,11 @@
                     <p class="header_div_title">L I T - H U B</p>
                 </div>
                 <nav class="child_header_div">
-                    <a class="login_button" href="/login">Login</a>
+                    {% if not autenticado %}
+                        <a class="login_button" href="/login">Login</a>
+                    {% else %}
+                        <p class="login_button">{{ username }}</p>
+                    {% endif %}
                 </nav>
 
             </div>
