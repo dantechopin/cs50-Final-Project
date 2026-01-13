@@ -98,3 +98,27 @@ def register_ok():
 @app.route("/sebo")
 def sebo():
     return render_template("sebo.html")    
+
+@app.route("/minhaconta", methods=["GET", "POST"])
+def minhaconta():
+    username = session["username"]
+    if request.method == "GET" and session.get("description"):
+        description = session.get("description")
+        return render_template("minhaconta.html", username=username, description=description)
+    if request.method == "GET" and not session.get("description"):
+        return render_template("minhaconta.html", username=username)
+    if not session.get("description"):
+        session["description"] = request.form["description"]
+        description = session["description"]
+        return render_template("minhaconta.html", description=description, username=username)
+    if session.get("description"):
+        session["description"] = request.form["description"]
+        description = session.get("description")
+        return render_template("minhaconta.html", description=description, username=username)
+
+@app.route("/meusebo", methods=["GET", "POST"])
+def meusebo():
+    if request.method == "GET":
+        return render_template("meusebo.html")
+    description = request.form["description"]
+    title = request.form["title"]

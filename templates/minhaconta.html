@@ -1,0 +1,17 @@
+{% extends "layout2.html" %}
+
+{% block main %}
+<div style="justify-self: center; margin: 30px;">
+    <p style="font-size: xx-large; font-weight: bold; text-align: center">MINHA CONTA</p>
+    <img src="static/icons/default_profile.png" style="height: 300px; width: auto; border: solid #000000">
+    <p style="font-size: xx-large; font-weight: bold; text-align: center">{{username}}</p>
+</div>
+<div style="justify-self: center; justify-items: center">
+    <form action="/minhaconta" method="post">
+        <textarea style="width: 500px; height: 200px; resize: none; margin: 20px; display: block; font-size: 11pt" placeholder="Descreva um pouco de você" name="description">{% if session.get("description") %}{{description}}{% endif %}</textarea>
+        <button type="submit" style="display: block; justify-self: center; width: 300px; margin: 20px">Salvar Alterações</button>
+    </form>
+    
+</div>
+
+{% endblock %}

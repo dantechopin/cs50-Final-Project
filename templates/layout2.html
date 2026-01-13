@@ -19,10 +19,7 @@
                     {% if not autenticado %}
                         <a class="login_button" href="/login">Login</a>
                     {% else %}
-                        <div style="display: flex;">
-                            <a href="/minhaconta" class="login_button">{{ username }}</a>
-                            <img src="static/icons/default_profile.png" style="height: 30px; width: auto">
-                        </div>
+                        <a href="/minhaconta" class="login_button">{{ username }}</a>
                     {% endif %}
                 </nav>
 
@@ -30,16 +27,16 @@
 
             <div class="parent_button_div">
                 <div class="child_button_div">
-                    <a href="/noticias" class="button_div_text">Notícias</a>
+                    <a href="/notificacoes" class="button_div_text">Notificações</a>
                 </div>
                 <div class="child_button_div">
-                    <a href="/sebo" class="button_div_text">Sebo</a>
+                    <a href="/meusebo" class="button_div_text">Meu Sebo</a>
                 </div>
                 <div class="child_button_div">
-                    <a href="/livro" class="button_div_text">Livrarias</a>
+                    <a href="/favoritos" class="button_div_text">Favoritos</a>
                 </div>
                 <div class="child_button_div">
-                    <a href="/iniciativas"class="button_div_text">Iniciativas</a>
+                    <a href="/minhaconta"class="button_div_text">Minha Conta</a>
                 </div>
             </div>
         </header>
@@ -52,6 +49,3 @@
     <footer style="background-color: #000000">
         <p style="color: #ffffff; padding: 10px; margin: 0;">FAQ</p>
     </footer>
-
-
-</html>

@@ -18,7 +18,7 @@
 .login_button
 {
     /* Takes the underline of the hyperlink */
-    text-decoration: none;
+    text-decoration: underline;
     color: #000000;
     /* You need to put display: block because anchors are inline elements in html*/
     display: block;
@@ -114,7 +114,7 @@
 
 body
 {
-    background-color: #e0d2c8;
+    background-color: rgb(197, 193, 193);
     /* I need to do margin and padding equals to 0 because browser usually puts them at 8px by default in body*/
     margin: 0;
     padding: 0;
@@ -193,4 +193,56 @@ figure {
 
 figure img {
     display: block;
+}
+
+.sebo_div_text
+{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    max-block-size: 100px;
+}
+
+.sebo_div1
+{
+    border-style: solid; 
+    background-color: beige; 
+    width: 580px; 
+    height: 270px; 
+    justify-self: center;
+    padding: 10px;
+}
+
+.sebo_div2
+{
+    display: flex;
+}
+
+.sebo_img
+{
+    flex: 0 0 150px; 
+    width: 170px; 
+    height: auto; 
+    position: relative;
+}
+
+.sebo_div3
+{
+    display: block; 
+    max-width: 240px;
+}
+
+.sebo_price
+{
+    text-align: right; 
+    margin: 0; 
+    padding: 5px;
+}
+
+.sebo_price_text
+{
+    font-weight: bold; 
+    font-size: 20pt; 
+    margin: 0; 
+    padding: 0
 }

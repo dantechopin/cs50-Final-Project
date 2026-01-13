@@ -1,0 +1,29 @@
+{% extends "layout2.html" %}
+
+{% block main %}
+<div>
+    
+    <p style="font-size: xx-large; font-weight: bold; text-align: center">MEU SEBO</p>
+    <p style="font-size: 14pt; margin: 70px">Venda seus livros usados no sebo virtual. Tire fotos do livro, descreva o estado do livro e o precifique. Nenhuma transação é efetuada dentro desse site, sendo para isso necessário deixar o número de contato em "Contatos". Em "Local de origem" o usuário poderá calcular o frete para o transporte do livro, caso queira mandar pelo Correio</p>
+</div>
+<form method="POST" action="/sebo">
+    <div class="sebo_div1">
+        <div class="sebo_div2">
+            <img src="static/icons/livro.png" class="sebo_img">
+            <div class="sebo_div3">
+                <input type="text" placeholder="Título" name="title">
+                <textarea name="description" class="sebo_div_text" placeholder="Descreva as condições do livro"></textarea>
+            </div>
+            <div>
+                <input type="text" placeholder="Local de origem">
+                <input type="text" placeholder="Preço">
+                <input type="text" placeholder="Estoque">
+                <input type="text" placeholder="Contatos">
+            </div>
+        </div>
+            <button type="submit">Enviar</button>
+    </div>
+
+</form>
+
+{% endblock %}
